@@ -9,29 +9,51 @@ const Header: React.FC = () => {
 
   return(
     <nav>
-      <div className="left">
+      <div className="left">      
         <Link href="/">
-          <a className="bold" data-active={isActive('/')}>
-            Blog
+          <a className="logo" data-active={isActive('/')}>
+            GachiTrip
           </a>
         </Link>
-        <Link href="/drafts">
-          <a data-active={isActive('/drafts')}>Drafts</a>
-        </Link>
-      </div>
+
+        <div className="menu-group"></div>
+          <Link href="/community">
+            <a data-active={isActive('/community')}>Community</a>
+          </Link>
+
+          <Link href="/together">
+            <a className="bold" data-active={isActive('/withs')}>Together</a>
+          </Link>
+        </div>
+
       <div className="right">
         <Link href="/signup">
-          <a data-active={isActive('/signup')}>Signup</a>
+          <a className= "signup-btn" data-active={isActive('/signup')}>Sign Up</a>
         </Link>
-        <Link href="/create">
-          <a data-active={isActive('/create')}>+ Create draft</a>
+        <Link href="/signin">
+          <a data-active={isActive('/signin')}>Sign In</a>
         </Link>
+
+        {
+          //   <Link href="/create">
+          //   <a data-active={isActive('/create')}>+ Create draft</a>
+          // </Link>
+        }
       </div>
       <style jsx>{`
         nav {
           display: flex;
           padding: 2rem;
           align-items: center;
+          justify-content: center;
+          background-color: #fff;
+        }
+
+        .logo {
+          font-size: 20px;
+          font-weight: bold;
+          color: #000;
+          margin-right: 20px;
         }
 
         .bold {
@@ -42,6 +64,10 @@ const Header: React.FC = () => {
           text-decoration: none;
           color: #000;
           display: inline-block;
+        }
+
+        .left {
+          display: felx;
         }
 
         .left a[data-active='true'] {
@@ -56,11 +82,17 @@ const Header: React.FC = () => {
           margin-left: auto;
         }
 
-        .right a {
+        .right .signup-btn {
           border: 1px solid black;
           padding: 0.5rem 1rem;
           border-radius: 3px;
         }
+
+        // .right a {
+        //   border: 1px solid black;
+        //   padding: 0.5rem 1rem;
+        //   border-radius: 3px;
+        // }
       `}</style>
     </nav>
   )
